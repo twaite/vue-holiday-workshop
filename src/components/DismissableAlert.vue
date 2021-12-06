@@ -31,7 +31,7 @@ export default {
 
 <style scoped>
 .alert {
-  @apply bg-indigo-900 flex text-white py-1;
+  @apply bg-green-900 flex text-white py-1;
 }
 
 h3 {

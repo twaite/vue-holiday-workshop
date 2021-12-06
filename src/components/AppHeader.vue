@@ -30,7 +30,7 @@ export default {
 
 <style lang="postcss">
 header {
-  @apply flex w-full p-2 shadow-md text-indigo-900;
+  @apply flex w-full p-2 shadow-md text-green-900;
 }
 
 .pages {

@@ -78,4 +78,14 @@ export default {
 .products {
   @apply flex overflow-x-scroll max-w-full;
 }
+
+.preview {
+  @apply bg-red-50 flex flex-col justify-center items-center;
+}
+
+.preview > h2 {
+  @apply text-lg md:text-2xl text-gray-900 text-center py-10;
+  font-family: 'Satisfy', cursive;
+  max-width: 24rem;
+}
 </style>

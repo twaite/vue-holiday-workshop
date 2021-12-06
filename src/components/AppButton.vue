@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 button {
-  @apply rounded border-indigo-900 border-2 py-1 px-2;
+  @apply rounded border-green-900 border-2 py-1 px-2;
 }
 
 button.full {
@@ -29,10 +29,10 @@ button.full {
 }
 
 button.primary {
-  @apply bg-indigo-900 text-white;
+  @apply bg-green-900 text-white;
 } 
 
 button.secondary {
-  @apply bg-white text-indigo-900;
+  @apply bg-white text-green-900;
 }
 </style>
