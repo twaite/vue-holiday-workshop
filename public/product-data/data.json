@@ -1,14 +1,125 @@
 [
   {
     "name": "Nutcracker",
-    "price": 4999
+    "price": 4999,
+    "id": 1,
+    "image": "nutcracker.jpg",
+    "description": "A one foot tall nutcracker.",
+    "sales": 23904 
   },
   {
-    "name": "Wreath",
-    "price": 7999
+    "name": "Traditional Wreath",
+    "price": 7999,
+    "id": 2,
+    "image": "wreath1.jpg",
+    "description": "A traditionally themed holiday wreath.",
+    "sales": 249
   },
   {
-    "name": "Wreath",
-    "price": 5499
+    "name": "Simple Wreath",
+    "price": 5499,
+    "id": 3,
+    "image": "wreath2.jpg",
+    "description": "A simple holiday wreath.",
+    "sales": 4950
+  },
+  {
+    "name": "Christmas Cookies",
+    "price": 1499,
+    "id": 4,
+    "image": "christmas-cookies.jpg",
+    "description": "A batch of a dozen premade christmas sugar cookies.",
+    "sales": 93204
+  },
+  {
+    "name": "Tree with Decorations",
+    "price": 34999,
+    "id": 5,
+    "image": "decorated-tree.jpg",
+    "description": "A real pine tree along with lights, garland and a set of ornaments.",
+    "sales": 492
+  },
+  {
+    "name": "Professional Gift Wrapping Services",
+    "price": 5999,
+    "id": 6,
+    "image": "gift-wrapping.jpg",
+    "description": "We'll come to you. Just give us a time and you'll have everyone wondering how you got so good at wrapping your gifts!",
+    "sales": 285
+  },
+  {
+    "name": "Gingerbread House Kit",
+    "price": 2499,
+    "id": 7,
+    "image": "gingerbread-house.jpg",
+    "description": "A simple gingerbread house kit. Perfect for the whole family!",
+    "sales": 479
+  },
+  {
+    "name": "A Bottle of Eggnog",
+    "price": 1999,
+    "id": 8,
+    "image": "eggnog.jpg",
+    "description": "Love it or hate it, you have to have it.",
+    "sales": 902
+  },
+  {
+    "name": "Mistletoe",
+    "price": 699,
+    "id": 9,
+    "image": "mistletoe.jpg",
+    "description": "Just a little mistletoe",
+    "sales": 2485
+  },
+  {
+    "name": "Catered Dinner for 8",
+    "price": 24999,
+    "id": 10,
+    "image": "dinner.jpg",
+    "description": "A fully catered dinner that serves 8.",
+    "sales": 209
+  },
+  {
+    "name": "Your Choice of Pie",
+    "price": 1999,
+    "id": 11,
+    "image": "pie.jpg",
+    "description": "Your choice of our frozen pies, shipped straight to your door.",
+    "options": ["Apple", "Blackberry", "Pumpkin", "Peach Cobbler"],
+    "sales": 14920
+  },
+  {
+    "name": "Pine Tree",
+    "price": 14999,
+    "id": 12,
+    "image": "pine-tree.jpg",
+    "description": "A 10\" tree delivered to your place.",
+    "sales": 742
+  },
+  {
+    "name": "Your Choice of White Wine",
+    "price": 2999,
+    "id": 13,
+    "image": "white-wine.jpg",
+    "description": "Your choice of white wine.",
+    "options": ["Chardonnay", "Sauvingnon Blanc", "Semillon", "Moscato", "Pinot Grigio", "Gewürztraminer", "Riesling"],
+    "sales": 659
+  },
+  {
+    "name": "Your Choice of Red Wine",
+    "price": 699,
+    "id": 14,
+    "image": "wine.jpg",
+    "description": "Your choice of red wine.",
+    "options": ["Cabernet Sauvignon", "Merlot", "Zinfandel", "Shiraz", "Malbec", "Pinot Noir", "Sangiovese", "Nebbilolo"],
+    "sales": 948
+  },
+  {
+    "name": "A Cooked Turkey",
+    "price": 5499,
+    "id": 14,
+    "image": "turkey.jpg",
+    "description": "We know how hard cooking a turkey can be. Let us handle the main course. A chef will prepare your turkey and it will be delivered Christmas Eve.",
+    "sales": 42
   }
 ]
