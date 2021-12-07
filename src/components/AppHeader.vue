@@ -11,30 +11,43 @@
       </div>
     </div>
     <nav class="cart">
+      <router-link to="/products" v-if="route.path !== '/products'">
+        <app-button>Browse all products</app-button>
+      </router-link>
       <cart-icon />
     </nav>
   </header>
 </template>
 
 <script>
+import { useRoute } from 'vue-router';
 import CartIcon from '@/icons/CartIcon';
 import LightsIcon from '@/icons/LightsIcon';
+import AppButton from '@/components/AppButton';
 
 export default {
   components: {
+    AppButton,
     CartIcon,
     LightsIcon
+  },
+  setup() {
+    const route = useRoute()
+
+    return {
+      route
+    }
   }
 }
 </script>
 
 <style lang="postcss">
 header {
-  @apply flex w-full p-2 shadow-md text-green-900;
+  @apply flex w-full px-2 py-3 shadow-md text-green-900;
 }
 
 .pages {
-  @apply flex hidden md:block md:w-1/3;
+  @apply flex hidden md:flex md:w-1/3 items-center;
 }
 
 .pages > a {
@@ -54,10 +67,14 @@ header {
 }
 
 .cart {
-  @apply flex justify-end w-12 md:w-1/3;
+  @apply flex justify-end w-12 md:w-1/3 items-center;
 }
 
 .cart > svg {
   @apply cursor-pointer;
+}
+
+.cart > a {
+  @apply pr-2 hidden md:block;
 }
 </style>

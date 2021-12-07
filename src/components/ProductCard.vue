@@ -2,9 +2,12 @@
   <div class="card-container">
     <div class="card">
       <div v-if="loading" class="image-skeleton" />
-      <img v-else :src="`product-data/images/${product.image}`" />
+      <img
+        v-else
+        :src="`product-images/${product.image}`"
+        @click="goToProductPage" />
       <div class="info">
-        <h1>
+        <h1 @click="goToProductPage">
           <div v-if="loading" class="name-skeleton" />
           <template v-else>
             {{product.name}}
@@ -26,6 +29,8 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
+
 import { formatCurrency } from '@/utils/currency';
 import AppButton from '@/components/AppButton';
 
@@ -35,9 +40,16 @@ export default {
     loading: Boolean
   },
   components: { AppButton },
-  setup() {
+  setup(props) {
+    const router = useRouter();
+
+    const goToProductPage = () => {
+      router.push(props.product ? `/product/${props.product.id}` : null);
+    }
+
     return {
-      formatCurrency
+      formatCurrency,
+      goToProductPage
     }
   }
 }
@@ -50,7 +62,7 @@ export default {
 }
 
 img {
-  @apply w-full object-cover object-center max-h-40 h-40 rounded-t-md;
+  @apply w-full object-cover object-center max-h-40 h-40 rounded-t-md cursor-pointer;
 }
 
 .image-skeleton {
@@ -62,7 +74,7 @@ img {
 }
 
 h1 {
-  @apply text-xl text-red-900;
+  @apply text-xl text-red-900 cursor-pointer hover:underline;
   font-family: 'Satisfy', cursive;
 }
 
@@ -71,7 +83,7 @@ h2 {
 }
 
 .card {
-  @apply shadow-md rounded cursor-pointer bg-white;
+  @apply shadow-md rounded bg-white;
 }
 
 .name-skeleton {

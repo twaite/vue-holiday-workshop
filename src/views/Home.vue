@@ -4,7 +4,7 @@
     <div class="splash">
       <div class="overlay">
         <h1>We make it easy to plan your holidays.</h1>
-        <router-link to="/shop" class="shop-all-link">
+        <router-link to="/products" class="shop-all-link">
           <app-button class="shop-all-button">Shop All</app-button>
         </router-link>
       </div>

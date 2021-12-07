@@ -1,14 +1,18 @@
+import data from "@/assets/product-data.json";
+
 export async function fetchProducts() {
   await sleep(getRandomInt(200, 2000));
-  const res = await fetch("./product-data/data.json");
-  return res.json();
+  return data;
 }
 
 export async function fetchMostPopularProducts() {
   await sleep(getRandomInt(200, 1000));
-  const res = await fetch("./product-data/data.json");
-  const data = await res.json();
   return data.sort((a, b) => b.sales - a.sales).slice(0, 4);
+}
+
+export async function fetchProductById(id) {
+  await sleep(getRandomInt(200, 1000));
+  return data.find((p) => p.id === Number(id));
 }
 
 function getRandomInt(min, max) {
