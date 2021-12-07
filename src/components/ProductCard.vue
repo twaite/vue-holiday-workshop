@@ -21,7 +21,7 @@
         </h2>
         <div v-if="loading" class="actions-skeleton" />
         <div class="cart-actions" v-else>
-          <app-button variant="primary">Add to Cart</app-button>
+          <app-button variant="primary" @click="addProductToCart">Add to Cart</app-button>
         </div>
       </div>
     </div>
@@ -30,6 +30,7 @@
 
 <script>
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 import { formatCurrency } from '@/utils/currency';
 import AppButton from '@/components/AppButton';
@@ -42,12 +43,16 @@ export default {
   components: { AppButton },
   setup(props) {
     const router = useRouter();
+    const store = useStore();
 
     const goToProductPage = () => {
       router.push(props.product ? `/product/${props.product.id}` : null);
     }
 
+    const addProductToCart = () => store.dispatch('addProduct', props.product);
+
     return {
+      addProductToCart,
       formatCurrency,
       goToProductPage
     }

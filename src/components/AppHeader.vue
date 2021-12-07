@@ -5,22 +5,28 @@
       <router-link to="/about">About</router-link>
     </nav>
     <div class="brand">
-      <div class="name">
+      <router-link class="name" to="/products">
         <lights-icon />
           <h1>Holiday Shopping App</h1>
-      </div>
+      </router-link>
     </div>
     <nav class="cart">
-      <router-link to="/products" v-if="route.path !== '/products'">
+      <router-link to="/products" class="product-link" v-if="route.path !== '/products'">
         <app-button>Browse all products</app-button>
       </router-link>
-      <cart-icon />
+      <router-link to="/cart">
+        <cart-icon />
+        <span class="badge">{{productCount}}</span>
+      </router-link>
     </nav>
   </header>
 </template>
 
 <script>
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { useStore } from 'vuex';
+
 import CartIcon from '@/icons/CartIcon';
 import LightsIcon from '@/icons/LightsIcon';
 import AppButton from '@/components/AppButton';
@@ -32,10 +38,12 @@ export default {
     LightsIcon
   },
   setup() {
-    const route = useRoute()
+    const store = useStore();
+    const route = useRoute();
 
     return {
-      route
+      route,
+      productCount: computed(() => store.getters.productCount)
     }
   }
 }
@@ -75,6 +83,14 @@ header {
 }
 
 .cart > a {
-  @apply pr-2 hidden md:block;
+  @apply relative;
+}
+
+.product-link {
+  @apply pr-2 hidden md:block relative;
+}
+
+.badge {
+  @apply rounded-full px-1 bg-green-600 text-white absolute text-sm -inset-y-1.5 h-4 w-4 inset-x-3.5;
 }
 </style>

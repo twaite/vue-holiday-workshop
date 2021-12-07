@@ -1,28 +1,30 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="isReady">
     <div class="desktop">
-      <img :src="`/product-images/${product.image}`" />
+      <img v-if="isReady" :src="`/product-images/${product.image}`" />
       <div class="details">
         <h1 class="title">{{product.name}}</h1>
         <h2 class="price">{{formatCurrency(product.price)}}</h2>
         <p>{{product.description}} Chimney wreath ivy partridge celebration Saint Nicholas snow, card gingerbread Rudolph merry. Vixen wintry nutcracker Blitzen holly tree nutcracker sleigh bells, hug bells fireplace Donner North Pole winter. Coal december package pageant joy singing evergreen Kris Kringle. Comet evergreen angel jingle bells, candy cane mittens happy yule ribbon goodwill Christmas tree trimming scarf elves. Give cookie holly jingle bells, gift goose happy goose chestnuts candy cane.</p>
-        <app-button variant="primary">Add to Cart</app-button>
+        <app-button variant="primary" @click="addProductToCart">Add to Cart</app-button>
       </div>
     </div>
     <div class="mobile">
-        <h1 class="title">{{product.name}}</h1>
-        <h2 class="price">{{formatCurrency(product.price)}}</h2>
-        <img :src="`/product-images/${product.image}`" />
-        <app-button variant="primary">Add to Cart</app-button>
-        <p>
-          {{product.description}} Chimney wreath ivy partridge celebration Saint Nicholas snow, card gingerbread Rudolph merry. Vixen wintry nutcracker Blitzen holly tree nutcracker sleigh bells, hug bells fireplace Donner North Pole winter. Coal december package pageant joy singing evergreen Kris Kringle. Comet evergreen angel jingle bells, candy cane mittens happy yule ribbon goodwill Christmas tree trimming scarf elves. Give cookie holly jingle bells, gift goose happy goose chestnuts candy cane.
-        </p>
+      <h1 class="title">{{product.name}}</h1>
+      <h2 class="price">{{formatCurrency(product.price)}}</h2>
+      <img :src="`/product-images/${product.image}`" />
+      <app-button variant="primary">Add to Cart</app-button>
+      <p>
+        {{product.description}} Chimney wreath ivy partridge celebration Saint Nicholas snow, card gingerbread Rudolph merry. Vixen wintry nutcracker Blitzen holly tree nutcracker sleigh bells, hug bells fireplace Donner North Pole winter. Coal december package pageant joy singing evergreen Kris Kringle. Comet evergreen angel jingle bells, candy cane mittens happy yule ribbon goodwill Christmas tree trimming scarf elves. Give cookie holly jingle bells, gift goose happy goose chestnuts candy cane.
+      </p>
     </div>
   </div>
+  <div v-else>Loading...</div>
 </template>
 
 <script>
 import { ref, watchEffect } from 'vue';
+import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
 
 import { formatCurrency } from '@/utils/currency';
@@ -34,6 +36,8 @@ export default {
   name: 'Product',
   setup() {
     const route = useRoute();
+    const store = useStore();
+
     const product = ref(null);
     const isReady = ref(false);
 
@@ -42,16 +46,20 @@ export default {
       isReady.value = true;
     })
 
+    const addProductToCart = () => store.dispatch('addProduct', product);
+
     return {
       product,
       isReady,
-      formatCurrency
+      formatCurrency,
+      addProductToCart
+
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   @apply max-w-screen-lg pt-6;
   margin: 0 auto;
